@@ -28,6 +28,8 @@ func _process(delta):
 			
 			var direction = position.direction_to(path[0]).normalized()
 			
+			$AnimatedSprite.play("side_walk")
+			
 			if direction.x > 0:
 				#$AnimatedSprite.play("side_walk")
 				$AnimatedSprite.flip_h = false
@@ -37,15 +39,19 @@ func _process(delta):
 			
 			break
 		elif move_distance <= 0.0:
+			print("move_distance <= 0.0")
 			position = path[0]
+			$AnimatedSprite.play("front_idle")
 			break
+			
 		move_distance -= distance_to_next
 		start_point = path[0]
 		
 		
 		path.remove(0)
 		
-		
+	
+	
 	
 func move_player(new_position):
 	path = get_parent().get_parent().get_node("Navigation2D").get_simple_path(position, new_position)
