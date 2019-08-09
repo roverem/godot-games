@@ -40,4 +40,3 @@ texture = ExtResource( 5 )
 [node name="Tile6" type="Sprite" parent="."]
 position = Vector2( 1072.55, 625.772 )
 texture = ExtResource( 6 )
-
